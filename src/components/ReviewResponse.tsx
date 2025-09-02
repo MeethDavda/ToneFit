@@ -5,7 +5,7 @@ function ReviewResponse({ data }: object) {
   console.log(typeof data?.top_hex);
   return (
     <div className="flex  justify-center items-center">
-      <div className="bg-[#fbf6f0] drop-shadow-xl rounded-lg h-[23em] flex flex-col p-4 gap-2">
+      <div className="bg-[#fbf6f0] drop-shadow-xl rounded-lg min-h-[23em] max-w-[45em] h-auto flex flex-col p-5 gap-2">
         <div className="rounded-full text-center p-2 bg-green-700 opacity-70 w-[50%] mx-auto text-gray-100">
           {data ? data?.verdict : "Verdict"}
         </div>

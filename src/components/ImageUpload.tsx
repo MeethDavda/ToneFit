@@ -24,7 +24,8 @@ function ImageUpload() {
       formData.append("image", selectedFile);
       try {
         const res = await axios.post(
-          "http://127.0.0.1:8000/rate-outfits",
+          // "http://127.0.0.1:8000/rate-outfits",
+          "http://ec2-51-20-183-70.eu-north-1.compute.amazonaws.com:8000/rate-outfits",
           formData
         );
         setLoader(false);
