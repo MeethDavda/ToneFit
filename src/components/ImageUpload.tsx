@@ -12,7 +12,7 @@ function ImageUpload() {
   const [imageLoader, setImageLoader] = useState(false);
   const [loader, setLoader] = useState(false);
 
-  async function handleFileChange(event) {
+  async function handleFileChange(event: { target: { files: any[] } }) {
     const imageFile = event.target.files[0];
     const options = {
       maxSizeMB: 1,
@@ -30,7 +30,9 @@ function ImageUpload() {
   }
 
   function handleSelect() {
-    fileInputRef.current.click();
+    if (fileInputRef.current) {
+      fileInputRef.current?.click();
+    }
   }
 
   async function handleUpload() {
@@ -41,7 +43,7 @@ function ImageUpload() {
       try {
         const res = await axios.post(
           // "http://127.0.0.1:8000/rate-outfits",
-          "http://ec2-51-20-10-227.eu-north-1.compute.amazonaws.com:8000/rate-outfits",
+          `$http://${process.env.AWS_URL}/rate-outfits`,
           formData
         );
         setLoader(false);
