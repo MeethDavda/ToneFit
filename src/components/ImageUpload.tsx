@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { useRef, useState } from "react";
 import ReviewResponse from "./ReviewResponse";
 import imageCompression from "browser-image-compression";
+import Modal from "./Modal";
 
 function ImageUpload() {
   const fileInputRef = useRef(null);
@@ -39,8 +40,8 @@ function ImageUpload() {
       formData.append("image", selectedFile);
       try {
         const res = await axios.post(
-          "http://127.0.0.1:8000/rate-outfits",
-          // "http://ec2-51-20-183-70.eu-north-1.compute.amazonaws.com:8000/rate-outfits",
+          // "http://127.0.0.1:8000/rate-outfits",
+          "http://ec2-51-20-10-227.eu-north-1.compute.amazonaws.com:8000/rate-outfits",
           formData
         );
         setLoader(false);
@@ -94,6 +95,9 @@ function ImageUpload() {
       </div>
       <div>
         <ReviewResponse data={res} />
+      </div>
+      <div>
+        <Modal open={loader} />
       </div>
     </div>
   );
