@@ -43,7 +43,7 @@ function ImageUpload() {
       try {
         const res = await axios.post(
           // "http://127.0.0.1:8000/rate-outfits",
-          `$http://${process.env.AWS_URL}/rate-outfits`,
+          "http://ec2-51-20-10-227.eu-north-1.compute.amazonaws.com:8000/rate-outfits",
           formData
         );
         setLoader(false);
